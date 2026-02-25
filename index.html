@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Timer</title>
+  
+  <meta name="description" content="Timer digital com cronômetro e temporizador">
+  <meta name="theme-color" content="#000000">
+  
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+</head>
+<body class="bg-black text-white m-0 p-0 font-sans antialiased overflow-hidden selection:bg-gray-800">
+  
+  <div id="app"></div>
+
+  <script type="module" src="/src/main.ts"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js', { scope: './' })
+          .then(registration => {
+            console.log('ServiceWorker registado com sucesso com o scope:', registration.scope);
+          })
+          .catch(error => {
+            console.error('Falha ao registar o ServiceWorker:', error);
+          });
+      });
+    }
+  </script>
+</body>
+</html>
