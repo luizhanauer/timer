@@ -210,7 +210,7 @@ const timer = useTimer(0);
 const stopwatch = useStopwatch();
 
 const inputHours: Ref<number> = ref(0);
-const inputMinutes: Ref<number> = ref(1); 
+const inputMinutes: Ref<number> = ref(0); 
 const inputSeconds: Ref<number> = ref(0);
 
 const updateTimerDuration = (): void => {
@@ -241,9 +241,9 @@ const handleAddTime = (secondsToAdd: number): void => {
 };
 
 const resetTimer = (): void => {
-  // Força o reset completo para o valor padrão absoluto de 1 minuto
+  // Força o reset completo para o valor padrão absoluto de 0 minuto
   inputHours.value = 0;
-  inputMinutes.value = 1;
+  inputMinutes.value = 0;
   inputSeconds.value = 0;
   
   timer.reset();
